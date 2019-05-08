@@ -13,7 +13,8 @@ const recipeSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
-  tags: [String]
+  tags: [String],
+  photo: String
 });
 
 // create url slug for each recipe

@@ -2,8 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const routes = require("./routes/index");
 const errorHandlers = require("./handlers/errorHandlers");
+const path = require('path');
 
 const app = express();
+
+// serve up static files from the public folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

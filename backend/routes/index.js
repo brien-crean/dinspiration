@@ -4,6 +4,11 @@ const recipeController = require("../controllers/recipeController");
 const { catchErrors } = require("../handlers/errorHandlers");
 
 router.get("/recipes", catchErrors(recipeController.getRecipes));
-router.post("/add", catchErrors(recipeController.createRecipe));
+
+router.post("/add",
+  recipeController.upload,
+  catchErrors(recipeController.resize),
+  catchErrors(recipeController.createRecipe)
+);
 
 module.exports = router;
