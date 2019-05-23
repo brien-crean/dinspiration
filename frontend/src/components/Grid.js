@@ -12,14 +12,19 @@ const GridLayout = styled.div`
 
 export default function Grid() {
   const context = useContext(AppContext);
-  const { recipes } = context.state;
+  const { recipes, loading } = context.state;
   return (
     <GridLayout>
       {
-        recipes
-          ?
+        loading
+          ? <p>Loading...</p> : recipes ?
             recipes.map(recipe => {
-              return <GridItem key={recipe._id} image={`${ROOT_URL}/uploads/${recipe.photo}`} />
+              return <GridItem
+                key={recipe._id}
+                id={recipe._id}
+                slug={recipe.slug}
+                image={`${ROOT_URL}/uploads/${recipe.photo}`}
+              />
             })
           :
             null

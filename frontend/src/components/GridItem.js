@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const GridItemContainer = styled.div`
   width: 300px;
@@ -9,9 +10,11 @@ const GridItemContainer = styled.div`
   box-shadow: ${props => props.theme.boxShadow};
 `;
 
-const GridItem = ({image, match}) => {
+const GridItem = ({image, id}) => {
   return (
-    <GridItemContainer image={image} />
+    <Link to={`/recipe/${id}`}>
+      <GridItemContainer image={image} />
+    </Link>
   );
 };
 
