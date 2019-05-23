@@ -49,3 +49,9 @@ exports.createRecipe = async (req, res) => {
   const result = await recipe.save();
   res.json(result);
 };
+
+// get specific recipe
+exports.getRecipe = async (req, res) => {
+  const recipe = await Recipe.findOne({ "_id": req.params.id});
+  res.json({ recipe });
+};

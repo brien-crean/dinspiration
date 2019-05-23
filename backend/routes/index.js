@@ -4,6 +4,7 @@ const recipeController = require("../controllers/recipeController");
 const { catchErrors } = require("../handlers/errorHandlers");
 
 router.get("/recipes", catchErrors(recipeController.getRecipes));
+router.get("/recipe/:id", catchErrors(recipeController.getRecipe));
 
 router.post("/add",
   recipeController.upload,
